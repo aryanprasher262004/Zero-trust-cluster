@@ -1,0 +1,14 @@
+Pod: team-a-app-76fc774bb8-4tcxq.team-a
+   Pod Revision: default
+   Pod Ports: 80 (app)
+--------------------
+Service: team-a-service.team-a
+   Port:  80/auto-detect targets pod port 80
+DestinationRule: team-a-destination-rule.team-a for "*.team-a.svc.cluster.local"
+   Traffic Policy TLS Mode: ISTIO_MUTUAL
+--------------------
+Effective PeerAuthentication:
+   Workload mTLS mode: STRICT
+Applied PeerAuthentication:
+   mesh-wide-mtls.istio-system, team-a-mtls.team-a
+mTLS verified on: Fri May  1 07:30:17 IST 2026
