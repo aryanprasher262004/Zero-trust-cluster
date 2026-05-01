@@ -1,0 +1,13 @@
+NAME                              READY   STATUS    RESTARTS   AGE
+pod/team-b-app-5d64784bd7-hjfmx   2/2     Running   0          39m
+
+NAME                     TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+service/team-b-service   ClusterIP   10.96.108.39   <none>        80/TCP    43m
+
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/team-b-app   1/1     1            1           43m
+
+NAME                                    DESIRED   CURRENT   READY   AGE
+replicaset.apps/team-b-app-5489dd44dd   0         0         0       42m
+replicaset.apps/team-b-app-5d64784bd7   1         1         1       39m
+replicaset.apps/team-b-app-66f56f6cbf   0         0         0       43m

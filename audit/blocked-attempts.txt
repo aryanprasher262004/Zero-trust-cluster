@@ -1,0 +1,8 @@
+=== Cross-Namespace Block Test ===
+Date: $(date)
+From: team-a-app
+To: team-b-service.team-b.svc.cluster.local
+Result: CONNECTION TIMEOUT
+Blocked by: Network Policy (default-deny-all)
+Secondary block: Istio AuthorizationPolicy (deny-team-a-to-team-b)
+Status: UNAUTHORIZED ACCESS BLOCKED ✅

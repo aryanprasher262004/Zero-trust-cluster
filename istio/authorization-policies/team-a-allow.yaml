@@ -1,0 +1,18 @@
+# Only allow traffic from within team-a namespace
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: team-a-allow-internal
+  namespace: team-a
+spec:
+  action: ALLOW
+  rules:
+    - from:
+        - source:
+            # Only pods with team-a service account can call team-a services
+            principals:
+              - "cluster.local/ns/team-a/sa/team-a-service-account"
+      to:
+        - operation:
+            methods: ["GET", "POST"]
+            ports: ["80"]

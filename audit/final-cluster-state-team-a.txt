@@ -1,0 +1,32 @@
+NAME                              READY   STATUS    RESTARTS   AGE
+pod/team-a-app-76fc774bb8-4tcxq   2/2     Running   0          39m
+
+NAME                     TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)   AGE
+service/team-a-service   ClusterIP   10.96.15.33   <none>        80/TCP    43m
+
+NAME                         READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/team-a-app   1/1     1            1           43m
+
+NAME                                    DESIRED   CURRENT   READY   AGE
+replicaset.apps/team-a-app-76fc774bb8   1         1         1       39m
+replicaset.apps/team-a-app-7d77c9d78f   0         0         0       43m
+replicaset.apps/team-a-app-854b6cccb5   0         0         0       43m
+NAMESPACE      NAME                    ACTION   AGE
+istio-system   deny-all                         18m
+team-a         allow-health-checks     ALLOW    18m
+team-a         deny-team-b-to-team-a   DENY     18m
+team-a         team-a-allow-internal   ALLOW    18m
+team-b         allow-health-checks     ALLOW    18m
+team-b         deny-team-a-to-team-b   DENY     18m
+team-b         team-b-allow-internal   ALLOW    18m
+NAMESPACE   NAME               POD-SELECTOR   AGE
+team-a      allow-dns          <none>         34m
+team-a      allow-internal     <none>         34m
+team-a      default-deny-all   <none>         34m
+team-b      allow-dns          <none>         34m
+team-b      allow-internal     <none>         34m
+team-b      default-deny-all   <none>         34m
+NAMESPACE      NAME             MODE     AGE
+istio-system   mesh-wide-mtls   STRICT   28m
+team-a         team-a-mtls      STRICT   28m
+team-b         team-b-mtls      STRICT   28m

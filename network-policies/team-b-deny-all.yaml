@@ -1,0 +1,12 @@
+# Block ALL incoming and outgoing traffic in team-b by default
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: default-deny-all
+  namespace: team-b
+spec:
+  podSelector: {}        # Applies to ALL pods in team-b
+  policyTypes:
+    - Ingress
+    - Egress
+  # No ingress or egress rules = deny everything

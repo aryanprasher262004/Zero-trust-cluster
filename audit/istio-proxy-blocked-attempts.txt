@@ -1,0 +1,50 @@
+2026-05-01T01:41:48.790128Z	info	FLAG: --profiling="true"
+2026-05-01T01:41:48.790131Z	info	FLAG: --proxyComponentLogLevel="misc:error"
+2026-05-01T01:41:48.790133Z	info	FLAG: --proxyLogLevel="warning"
+2026-05-01T01:41:48.790135Z	info	FLAG: --serviceCluster="istio-proxy"
+2026-05-01T01:41:48.790136Z	info	FLAG: --stsPort="0"
+2026-05-01T01:41:48.790137Z	info	FLAG: --templateFile=""
+2026-05-01T01:41:48.790138Z	info	FLAG: --tokenManagerPlugin=""
+2026-05-01T01:41:48.790141Z	info	FLAG: --vklog="0"
+2026-05-01T01:41:48.790145Z	info	Version 1.29.2-0c774325b938c4dbda4ea4ad4fb6156e80a12de8-Clean
+2026-05-01T01:41:48.790254Z	info	Proxy role	ips=[10.244.0.12] type=sidecar id=team-a-app-76fc774bb8-4tcxq.team-a domain=team-a.svc.cluster.local
+2026-05-01T01:41:48.790276Z	info	Apply proxy config from env {}
+
+2026-05-01T01:41:48.791037Z	info	cpu limit detected as 2, setting concurrency
+2026-05-01T01:41:48.791140Z	info	Effective config: binaryPath: /usr/local/bin/envoy
+concurrency: 2
+configPath: ./etc/istio/proxy
+controlPlaneAuthPolicy: MUTUAL_TLS
+discoveryAddress: istiod.istio-system.svc:15012
+drainDuration: 45s
+proxyAdminPort: 15000
+serviceCluster: istio-proxy
+statNameLength: 189
+statusPort: 15020
+terminationDrainDuration: 5s
+
+2026-05-01T01:41:48.791145Z	info	JWT policy is third-party-jwt
+2026-05-01T01:41:48.791146Z	info	using credential fetcher of JWT type in cluster.local trust domain
+2026-05-01T01:41:48.993068Z	info	monitoring	The default Prometheus naming translation strategy is planned to be changed from otlptranslator.NoUTF8EscapingWithSuffixes to otlptranslator.UnderscoreEscapingWithSuffixes in a future release. Add prometheus.WithTranslationStrategy(otlptranslator.NoUTF8EscapingWithSuffixes) to preserve the existing behavior, or prometheus.WithTranslationStrategy(otlptranslator.UnderscoreEscapingWithSuffixes) to opt into the future default behavior.
+2026-05-01T01:41:48.993373Z	info	Starting default Istio SDS Server
+2026-05-01T01:41:48.993391Z	info	CA Endpoint istiod.istio-system.svc:15012, provider Citadel
+2026-05-01T01:41:48.993409Z	info	Using CA istiod.istio-system.svc:15012 cert with certs: var/run/secrets/istio/root-cert.pem
+2026-05-01T01:41:48.993549Z	info	Opening status port 15020
+2026-05-01T01:41:48.994351Z	info	xdsproxy	Initializing with upstream address "istiod.istio-system.svc:15012" and cluster "Kubernetes"
+2026-05-01T01:41:48.998638Z	info	Pilot SAN: [istiod.istio-system.svc]
+2026-05-01T01:41:48.999309Z	info	Starting proxy agent
+2026-05-01T01:41:48.999333Z	info	Envoy command: [-c etc/istio/proxy/envoy-rev.json --drain-time-s 45 --drain-strategy immediate --local-address-ip-version v4 --file-flush-interval-msec 1000 --disable-hot-restart --allow-unknown-static-fields -l warning --component-log-level misc:error --skip-deprecated-logs --concurrency 2]
+2026-05-01T01:41:49.002029Z	info	sds	Starting SDS grpc server
+2026-05-01T01:41:49.002043Z	info	sds	Starting SDS server for workload certificates, will listen on "var/run/secrets/workload-spiffe-uds/socket"
+2026-05-01T01:41:49.027235Z	info	cache	generated new workload certificate	resourceName=default latency=28.628333ms ttl=23h59m59.972766625s
+2026-05-01T01:41:49.027258Z	info	cache	Root cert has changed, start rotating root cert
+2026-05-01T01:41:49.027273Z	info	cache	returned workload trust anchor from cache	ttl=23h59m59.97272725s
+2026-05-01T01:41:49.036289Z	info	xdsproxy	connected to delta upstream XDS server: istiod.istio-system.svc:15012	id=1
+2026-05-01T01:41:49.043649Z	info	ads	ADS: new connection for node:1
+2026-05-01T01:41:49.043674Z	info	cache	returned workload certificate from cache	ttl=23h59m59.956325834s
+2026-05-01T01:41:49.044003Z	info	ads	ADS: new connection for node:2
+2026-05-01T01:41:49.044111Z	info	cache	returned workload trust anchor from cache	ttl=23h59m59.955892s
+2026-05-01T01:41:50.523494Z	info	Readiness succeeded in 1.734128001s
+2026-05-01T01:41:50.523896Z	info	Envoy proxy is ready
+[2026-05-01T01:48:09.676Z] "GET / HTTP/1.1" 0 DC downstream_remote_disconnect - "-" 0 0 5005 - "-" "Wget" "6d3c07a8-6f46-996a-b26e-568ea14b5218" "team-b-service.team-b.svc.cluster.local" "10.244.0.13:80" outbound|80||team-b-service.team-b.svc.cluster.local - 10.96.108.39:80 10.244.0.12:51658 - default
+[2026-05-01T02:03:19.554Z] "GET / HTTP/1.1" 0 DC downstream_remote_disconnect - "-" 0 0 5001 - "-" "Wget" "18300bf4-c9f8-92c7-a713-75600bceaac0" "team-b-service.team-b.svc.cluster.local" "10.244.0.13:80" outbound|80||team-b-service.team-b.svc.cluster.local - 10.96.108.39:80 10.244.0.12:49554 - default

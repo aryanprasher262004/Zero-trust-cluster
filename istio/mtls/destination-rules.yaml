@@ -1,0 +1,21 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: team-a-destination-rule
+  namespace: team-a
+spec:
+  host: "team-a-service.team-a.svc.cluster.local"   # ← exact name
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: team-b-destination-rule
+  namespace: team-b
+spec:
+  host: "team-b-service.team-b.svc.cluster.local"   # ← exact name
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
