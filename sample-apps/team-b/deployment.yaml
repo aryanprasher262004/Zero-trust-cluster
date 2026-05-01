@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: team-b-app
+  namespace: team-b
+  labels:
+    app: team-b-app
+    team: team-b
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: team-b-app
+  template:
+    metadata:
+      labels:
+        app: team-b-app
+        team: team-b
+    spec:
+      serviceAccountName: team-b-service-account
+      containers:
+        - name: app
+          image: nginx:1.25-alpine
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "50m"
+            limits:
+              memory: "128Mi"
+              cpu: "100m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: team-b-service
+  namespace: team-b
+  labels:
+    app: team-b-app
+    team: team-b
+spec:
+  selector:
+    app: team-b-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
