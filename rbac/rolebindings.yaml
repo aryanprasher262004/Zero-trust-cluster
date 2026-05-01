@@ -1,0 +1,63 @@
+# Bind Team A developer to their role
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: team-a-developer-binding
+  namespace: team-a
+subjects:
+  - kind: ServiceAccount
+    name: team-a-developer
+    namespace: team-a
+roleRef:
+  kind: Role
+  name: team-a-developer-role
+  apiGroup: rbac.authorization.k8s.io
+---
+# Bind Team A service account to readonly role
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: team-a-app-binding
+  namespace: team-a
+subjects:
+  - kind: ServiceAccount
+    name: team-a-service-account
+    namespace: team-a
+roleRef:
+  kind: Role
+  name: team-a-readonly-role
+  apiGroup: rbac.authorization.k8s.io
+---
+# Bind Team B developer to their role
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: team-b-developer-binding
+  namespace: team-b
+subjects:
+  - kind: ServiceAccount
+    name: team-b-developer
+    namespace: team-b
+roleRef:
+  kind: Role
+  name: team-b-developer-role
+  apiGroup: rbac.authorization.k8s.io
+---
+# Bind Team B service account to readonly role
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: team-b-app-binding
+  namespace: team-b
+subjects:
+  - kind: ServiceAccount
+    name: team-b-service-account
+    namespace: team-b
+roleRef:
+  kind: Role
+  name: team-b-readonly-role
+  apiGroup: rbac.authorization.k8s.io
+---
+# CROSS-NAMESPACE BLOCK: Team A cannot access Team B (no binding exists)
+# CROSS-NAMESPACE BLOCK: Team B cannot access Team A (no binding exists)
+# This is Zero-Trust: if no binding exists, access is DENIED by default

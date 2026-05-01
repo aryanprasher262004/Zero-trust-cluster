@@ -1,0 +1,56 @@
+# Team A - Developer Role (read + deploy only)
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: team-a-developer-role
+  namespace: team-a
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "services", "configmaps"]
+    verbs: ["get", "list", "watch", "create", "update"]
+  - apiGroups: ["apps"]
+    resources: ["deployments", "replicasets"]
+    verbs: ["get", "list", "watch", "create", "update"]
+  # Cannot delete or access secrets
+---
+# Team A - Read Only Role (for monitoring)
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: team-a-readonly-role
+  namespace: team-a
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "services", "configmaps"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["apps"]
+    resources: ["deployments"]
+    verbs: ["get", "list", "watch"]
+---
+# Team B - Developer Role (read + deploy only)
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: team-b-developer-role
+  namespace: team-b
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "services", "configmaps"]
+    verbs: ["get", "list", "watch", "create", "update"]
+  - apiGroups: ["apps"]
+    resources: ["deployments", "replicasets"]
+    verbs: ["get", "list", "watch", "create", "update"]
+---
+# Team B - Read Only Role
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: team-b-readonly-role
+  namespace: team-b
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "services", "configmaps"]
+    verbs: ["get", "list", "watch"]
+  - apiGroups: ["apps"]
+    resources: ["deployments"]
+    verbs: ["get", "list", "watch"]
