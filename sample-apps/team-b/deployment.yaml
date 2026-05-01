@@ -20,7 +20,7 @@ spec:
       serviceAccountName: team-b-service-account
       containers:
         - name: app
-          image: nginx:alpine
+          image: nginx:1.25-alpine
           ports:
             - containerPort: 80
           resources:
