@@ -1,0 +1,17 @@
+# Only allow traffic from within team-b namespace
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: team-b-allow-internal
+  namespace: team-b
+spec:
+  action: ALLOW
+  rules:
+    - from:
+        - source:
+            principals:
+              - "cluster.local/ns/team-b/sa/team-b-service-account"
+      to:
+        - operation:
+            methods: ["GET", "POST"]
+            ports: ["80"]

@@ -1,0 +1,41 @@
+NAMESPACE            NAME                                                                            CREATED AT
+istio-system         role.rbac.authorization.k8s.io/istio-egressgateway-sds                          2026-05-01T00:43:28Z
+istio-system         role.rbac.authorization.k8s.io/istio-ingressgateway-sds                         2026-05-01T00:43:28Z
+istio-system         role.rbac.authorization.k8s.io/istiod                                           2026-05-01T00:43:16Z
+kube-public          role.rbac.authorization.k8s.io/kubeadm:bootstrap-signer-clusterinfo             2026-04-30T22:02:40Z
+kube-public          role.rbac.authorization.k8s.io/system:controller:bootstrap-signer               2026-04-30T22:02:39Z
+kube-system          role.rbac.authorization.k8s.io/extension-apiserver-authentication-reader        2026-04-30T22:02:39Z
+kube-system          role.rbac.authorization.k8s.io/kube-proxy                                       2026-04-30T22:02:41Z
+kube-system          role.rbac.authorization.k8s.io/kubeadm:kubelet-config                           2026-04-30T22:02:40Z
+kube-system          role.rbac.authorization.k8s.io/kubeadm:nodes-kubeadm-config                     2026-04-30T22:02:40Z
+kube-system          role.rbac.authorization.k8s.io/system::leader-locking-kube-controller-manager   2026-04-30T22:02:39Z
+kube-system          role.rbac.authorization.k8s.io/system::leader-locking-kube-scheduler            2026-04-30T22:02:39Z
+kube-system          role.rbac.authorization.k8s.io/system:controller:bootstrap-signer               2026-04-30T22:02:39Z
+kube-system          role.rbac.authorization.k8s.io/system:controller:cloud-provider                 2026-04-30T22:02:39Z
+kube-system          role.rbac.authorization.k8s.io/system:controller:token-cleaner                  2026-04-30T22:02:39Z
+local-path-storage   role.rbac.authorization.k8s.io/local-path-provisioner-role                      2026-04-30T22:02:42Z
+team-a               role.rbac.authorization.k8s.io/team-a-developer-role                            2026-05-01T01:26:36Z
+team-a               role.rbac.authorization.k8s.io/team-a-readonly-role                             2026-05-01T01:26:36Z
+team-b               role.rbac.authorization.k8s.io/team-b-developer-role                            2026-05-01T01:26:36Z
+team-b               role.rbac.authorization.k8s.io/team-b-readonly-role                             2026-05-01T01:26:36Z
+
+NAMESPACE            NAME                                                                                      ROLE                                                  AGE
+istio-system         rolebinding.rbac.authorization.k8s.io/istio-egressgateway-sds                             Role/istio-egressgateway-sds                          86m
+istio-system         rolebinding.rbac.authorization.k8s.io/istio-ingressgateway-sds                            Role/istio-ingressgateway-sds                         86m
+istio-system         rolebinding.rbac.authorization.k8s.io/istiod                                              Role/istiod                                           86m
+kube-public          rolebinding.rbac.authorization.k8s.io/kubeadm:bootstrap-signer-clusterinfo                Role/kubeadm:bootstrap-signer-clusterinfo             4h7m
+kube-public          rolebinding.rbac.authorization.k8s.io/system:controller:bootstrap-signer                  Role/system:controller:bootstrap-signer               4h7m
+kube-system          rolebinding.rbac.authorization.k8s.io/kube-proxy                                          Role/kube-proxy                                       4h7m
+kube-system          rolebinding.rbac.authorization.k8s.io/kubeadm:kubelet-config                              Role/kubeadm:kubelet-config                           4h7m
+kube-system          rolebinding.rbac.authorization.k8s.io/kubeadm:nodes-kubeadm-config                        Role/kubeadm:nodes-kubeadm-config                     4h7m
+kube-system          rolebinding.rbac.authorization.k8s.io/system::extension-apiserver-authentication-reader   Role/extension-apiserver-authentication-reader        4h7m
+kube-system          rolebinding.rbac.authorization.k8s.io/system::leader-locking-kube-controller-manager      Role/system::leader-locking-kube-controller-manager   4h7m
+kube-system          rolebinding.rbac.authorization.k8s.io/system::leader-locking-kube-scheduler               Role/system::leader-locking-kube-scheduler            4h7m
+kube-system          rolebinding.rbac.authorization.k8s.io/system:controller:bootstrap-signer                  Role/system:controller:bootstrap-signer               4h7m
+kube-system          rolebinding.rbac.authorization.k8s.io/system:controller:cloud-provider                    Role/system:controller:cloud-provider                 4h7m
+kube-system          rolebinding.rbac.authorization.k8s.io/system:controller:token-cleaner                     Role/system:controller:token-cleaner                  4h7m
+local-path-storage   rolebinding.rbac.authorization.k8s.io/local-path-provisioner-bind                         Role/local-path-provisioner-role                      4h7m
+team-a               rolebinding.rbac.authorization.k8s.io/team-a-app-binding                                  Role/team-a-readonly-role                             42m
+team-a               rolebinding.rbac.authorization.k8s.io/team-a-developer-binding                            Role/team-a-developer-role                            42m
+team-b               rolebinding.rbac.authorization.k8s.io/team-b-app-binding                                  Role/team-b-readonly-role                             42m
+team-b               rolebinding.rbac.authorization.k8s.io/team-b-developer-binding                            Role/team-b-developer-role                            42m

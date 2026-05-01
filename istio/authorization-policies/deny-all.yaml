@@ -1,0 +1,10 @@
+# Deny ALL requests across the entire mesh by default
+# Nothing is allowed unless explicitly permitted below
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: deny-all
+  namespace: istio-system
+spec:
+  {}
+  # Empty spec = deny everything mesh-wide

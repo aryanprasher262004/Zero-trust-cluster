@@ -1,0 +1,8 @@
+NAMESPACE      NAME                    ACTION   AGE
+istio-system   deny-all                         7m37s
+team-a         allow-health-checks     ALLOW    7m18s
+team-a         deny-team-b-to-team-a   DENY     7m24s
+team-a         team-a-allow-internal   ALLOW    7m33s
+team-b         allow-health-checks     ALLOW    7m18s
+team-b         deny-team-a-to-team-b   DENY     7m24s
+team-b         team-b-allow-internal   ALLOW    7m28s

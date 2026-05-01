@@ -1,0 +1,26 @@
+# Explicitly deny team-a from accessing team-b
+# This creates audit log entries when attempted
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: deny-team-a-to-team-b
+  namespace: team-b
+spec:
+  action: DENY
+  rules:
+    - from:
+        - source:
+            namespaces: ["team-a"]
+---
+# Explicitly deny team-b from accessing team-a
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: deny-team-b-to-team-a
+  namespace: team-a
+spec:
+  action: DENY
+  rules:
+    - from:
+        - source:
+            namespaces: ["team-b"]

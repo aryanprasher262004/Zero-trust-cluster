@@ -1,0 +1,25 @@
+# Allow Istio's own health check probes
+# Without this, pod health checks fail
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-health-checks
+  namespace: team-a
+spec:
+  action: ALLOW
+  rules:
+    - to:
+        - operation:
+            paths: ["/healthz", "/ready", "/livez"]
+---
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-health-checks
+  namespace: team-b
+spec:
+  action: ALLOW
+  rules:
+    - to:
+        - operation:
+            paths: ["/healthz", "/ready", "/livez"]

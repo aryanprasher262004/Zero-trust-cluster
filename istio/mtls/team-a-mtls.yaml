@@ -1,0 +1,10 @@
+# STRICT mode = only encrypted mTLS traffic allowed
+# Any plain HTTP will be REJECTED
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: team-a-mtls
+  namespace: team-a
+spec:
+  mtls:
+    mode: STRICT    # Reject ALL non-mTLS traffic

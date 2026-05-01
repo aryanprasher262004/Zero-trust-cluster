@@ -1,0 +1,14 @@
+Pod: team-a-app-76fc774bb8-4tcxq.team-a
+   Pod Revision: default
+   Pod Ports: 80 (app)
+--------------------
+Service: team-a-service.team-a
+   Port: http 80/HTTP targets pod port 80
+DestinationRule: team-a-destination-rule.team-a for "team-a-service.team-a.svc.cluster.local"
+   Traffic Policy TLS Mode: ISTIO_MUTUAL
+RBAC policies: ns[team-a]-policy[deny-team-b-to-team-a]-rule[0]
+--------------------
+Effective PeerAuthentication:
+   Workload mTLS mode: STRICT
+Applied PeerAuthentication:
+   mesh-wide-mtls.istio-system, team-a-mtls.team-a

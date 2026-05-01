@@ -1,0 +1,7 @@
+NAMESPACE   NAME               POD-SELECTOR   AGE
+team-a      allow-dns          <none>         23m
+team-a      allow-internal     <none>         23m
+team-a      default-deny-all   <none>         23m
+team-b      allow-dns          <none>         23m
+team-b      allow-internal     <none>         23m
+team-b      default-deny-all   <none>         23m

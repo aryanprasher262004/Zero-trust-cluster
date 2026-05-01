@@ -1,0 +1,9 @@
+# Apply mTLS across the ENTIRE mesh as baseline
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: mesh-wide-mtls
+  namespace: istio-system
+spec:
+  mtls:
+    mode: STRICT
